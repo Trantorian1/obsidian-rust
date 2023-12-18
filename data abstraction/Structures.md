@@ -103,6 +103,7 @@ impl Point {
 	// functions that do not take 'self'
 	// as first parameter are static
 	pub fn distance(a: Point, b: Point) -> Self {
+		// 'Self' refers to the type being implemented
 		Self { x: a.x - b.x, y: a.y - b.y }
 	}
 
@@ -140,10 +141,29 @@ pub struct Point {
 }
 
 impl Point {
-	// 'Self' refers to the type being implemented
 	pub fn new(x: f32, y: f32) -> Self {
 		Self { x: x, y: y }
 	}
+}
+```
+
+## Static Variables
+
+Static variables can be scoped to a `struct` by being defined inside that structure's implementation.
+
+*ex:*
+```rust
+pub struct Point {
+	x: f32,
+	y: f32,
+}
+
+impl Point {
+	const ORIGIN: Self = Self { x: 0, y: 0 };
+}
+
+fn main() {
+	println!("origin: {{x:{},y:{}}}", Point::ORIGIN.x, Point::ORIGIN.y)
 }
 ```
 

@@ -48,3 +48,40 @@ match name {
 }
 ```
 
+---
+
+## `if let`
+
+> 📚 `if let` allows for pattern matching on a single pattern. It is useful when only a particular match is useful but should not be used for situations where all cases should be handled, for example error handling.
+
+*syntax*
+```rust
+if let match = source {
+	// code
+}
+```
+
+*ex:*
+```rust
+fn optional_data(n: u32) -> Option<u32> {
+	if n % 2 == 0 {
+		Some(n)
+	} else {
+		None
+	}
+}
+
+fn main() {
+	if let Some(n) = optional_data(42) {
+		println!("n: {}", n);
+	}
+
+	if let None = optional_data(21) {
+		println!("no data!");
+	}
+}
+```
+
+---
+*related:* [[About Error Handling]] [[rust/control flow/Conditions|Conditions]]
+
