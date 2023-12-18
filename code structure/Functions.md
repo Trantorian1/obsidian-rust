@@ -1,4 +1,4 @@
-> ℹ️ Functions in Rust work similarly to in other low-level programming languages such as C and C++, albeit with a more modern and readable syntax.
+> ℹ️ **Functions** in Rust work similarly to in other low-level programming languages such as C and C++, albeit with a more modern and readable syntax.
 
 *syntax:*
 ```rust
@@ -12,4 +12,6 @@ fn addup(x: i32, y: i32) -> i32 {
 }
 ```
 
-> 🔗 See [[Expressions & Declerations]] for more information on how values are returned in functions.
+> 🔗 See [[Expressions & Declarations]] for more information on how values are returned in functions.
+
+---

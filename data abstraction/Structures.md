@@ -87,4 +87,65 @@ match position {
 ```
 
 ---
+
+## Member Functions
+
+> ℹ️ **Member Functions** in Rust work the same way as class member functions in OOP languages such as C++, though their syntax for declaration is somewhat different.
+
+*syntax:*
+```rust
+struct Point {
+	x: f32,
+	y: f32,
+}
+
+impl Point {
+	// functions that do not take 'self'
+	// as first parameter are static
+	pub fn distance(a: Point, b: Point) -> Self {
+		Self { x: a.x - b.x, y: a.y - b.y }
+	}
+
+	// `self` refers to the instance
+	// this function is being called on
+	pub fn distance_to(&self, other: Point) -> f32 {
+	    let width = self.x - other.x;
+        let height = self.y - other.y;
+
+        (width * width + height * height).sqrt()
+    }
+
+	// for functions that mutate the calling object,
+	// 'self' must be specified as mutable
+    pub fn translate_mut(&mut self, other: Point) {
+        self.x += other.x;
+        self.y += other.y;
+    }
+}
+```
+
+---
+
+## Constructors
+
+> ℹ️ While constructors are not natively supported in Rust, similar functionality can be achieved using **member functions**.
+
+By convention, you should name your constructors `new`.
+
+*ex:*
+```rust
+pub struct Point {
+	x: f32,
+	y: f32,
+}
+
+impl Point {
+	// 'Self' refers to the type being implemented
+	pub fn new(x: f32, y: f32) -> Self {
+		Self { x: x, y: y }
+	}
+}
+```
+
+---
 *related:* [[Enums]], [[rust/code structure/Functions|Functions]], [[Pattern Matching]]
