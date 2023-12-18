@@ -84,16 +84,17 @@ for (i, val) in v.iter().enumerate() {
 
 *syntax:*
 ```rust
-`tag: for val in iterable {
+'tag: for val in iterable {
 	// code
 }
 ```
 
 *ex:*
 ```rust
-`outer: for i in 0..10 {
-	`inner: for j in 0..10 {
+'outer: for i in 0..10 {
+	'inner: for j in 0..10 {
 		if (condition) {
+			break 'outer;
 		}
 	}
 }
