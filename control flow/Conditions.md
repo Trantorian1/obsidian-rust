@@ -50,12 +50,23 @@ match variable {
 let name = "Trantorian";
 
 match name {
+	// matches a value
 	"The Mule" => {
 		println("Taking over the Foundation!");
 	}
-	tmp if tmp.chars().count() > 0 {
+
+	// matching multiple conditions
+	"Hary Seldom" | "Salvador Hardin" => {
+		println("Important figure of the Foundation");
+	}
+
+	// matches an expression
+	tmp if tmp.chars().count() > 0 { 
+		// tmp can be used inside this scope as the value which as been matched
 		println!("I am {}, a cool character from the novel 'Foundation'", tmp);
 	}
+	
+	// default branch
 	_ => {
 		// default code
 	}
