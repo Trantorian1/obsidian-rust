@@ -37,5 +37,54 @@ struct Unit;
 
 > 📚 **Destructuring** allows for easy access to structure member data using *pattern matching*.
 
+*syntax:*
+```rust
+match structure {
+	Structure { x, y } => {
+		// code
+	}
+```
+
+*ex:*
+```rust
+struct Point {
+	x: f32,
+	y: f32,
+}
+
+let position = Point { 12.3, 14.6 };
+
+match position {
+	Point { x, y } => println!("current position is [{}, {}]", x, y);
+}
+```
+
+Destructuring can also be use to **only extract certain fields** from a structure.
+
+*syntax:*
+```rust
+match structure {
+	Structure { x, ... } => {
+		// code
+	}
+}
+```
+
+*ex:*
+```rust
+struct Point {
+	x: f32,
+	y: f32,
+}
+
+let position = Point { 12.3, 14.6 };
+
+match position {
+	// note that we only destructured 'y', 
+	// so we have no way of accessing 'x' !
+	Point { y, ... } => println!("current position is [..., {}]", y);
+}
+```
+
 ---
-*related:* [[Enums]], [[rust/code structure/Functions|Functions]], [[rust/control flow/Conditions|Conditions]]
+*related:* [[Enums]], [[rust/code structure/Functions|Functions]], [[Pattern Matching]]

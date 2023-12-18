@@ -20,3 +20,4 @@ if condition1 {
 > ⚠️ Note that `{}` are **compulsory**: it is not possible to omit curly braces even for single-line conditions!
 
 ---
+*related:* [[Pattern Matching]], [[rust/control flow/Loops|Loops]]
