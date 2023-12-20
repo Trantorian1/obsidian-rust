@@ -90,4 +90,4 @@ In summary, the Rust borrow checker ensures that:
 > 💡 These rules make it easy to keep track of data mutation, especially in the context of concurrent programming.
 
 ---
-*related:* [[Lifetime]]
+*related:* [[Lifetime]] [[Dereferencing]]
