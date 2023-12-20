@@ -79,3 +79,14 @@ $($x:expr),* // any expression seperated by a ','
 - `?` one or no repetitions
 - `*` zero or more repetitions
 - `+` one or more repetitions
+
+> ℹ️ Note that repetitions can also be used to generate code
+
+*ex:*
+```rust
+$(
+	// generates the below line as 
+	// many times as $x was parsed
+	println!("{}", $x);
+)*
+```
