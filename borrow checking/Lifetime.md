@@ -50,12 +50,35 @@ struct LineIterator<'a> {
 }
 ```
 
+Note that there also exists a special time of lifetime, labelled `'static`, which guarantees that your variables will live as long as the program itself.
+
+*ex:*
+```rust
+fn static_lifetime(a: &str) -> &'static str {
+	let var = "test"
+
+	// references to 'var' as returned by this function
+	// will persist for the entire duration of the program
+	var
+}
+```
+
 ---
 
 ## Lifetime Constraints
 
-// TODO: finish this
-// TODO: add lifetime info about mutable refences and immutable references
+It is also possible to specify the duration of lifetimes in relation to each other. This functions in a similar way to *generic constraints*.
+
+*syntax:*
+```rust
+fn foo<'a, 'b, 'c>(a: &'a str, b: &'b str, c: &'c str) -> &'a str
+where
+	'b: 'c,     // 'b must live for at least as long as 'c
+	'a: 'b + 'c // it is also possible to combine lifetime durations
+{
+	// code...
+}
+```
 
 ---
 *related:* [[rust/types/Ownership|Ownership]]

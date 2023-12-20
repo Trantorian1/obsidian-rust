@@ -74,4 +74,20 @@ fn main() {
 ```
 
 ---
+
+## Constant and immutable references
+
+The Rust borrow checker ensures data access safety so as to avoid concurrent data access races. This is especially important in the case of **mutable** as compared to **immutable** variable references.
+
+- **mutable**: only *one* mutable variable reference can exists at a time.
+- **immutable**: multiple immutable variable references can coexist, but no *mutable* reference can exists alongside them.
+
+In summary, the Rust borrow checker ensures that:
+
+1. A single source of truth is maintained. 
+2. As long as an immutable reference exists, no further mutation of the original variable can exists, following principle **1**.
+
+> 💡 These rules make it easy to keep track of data mutation, especially in the context of concurrent programming.
+
+---
 *related:* [[Lifetime]]
